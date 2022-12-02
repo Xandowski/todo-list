@@ -30,6 +30,7 @@ export default function App() {
 
   function handleNewTask() {
     if(newTask){
+      setNewTask({id: '', name:''})
       return setTasks([...tasks, newTask])
     }
   }
@@ -45,7 +46,7 @@ export default function App() {
       </header>
       
       <section className='w-full px-2 sm:px-0 flex gap-2 justify-center absolute top-[200px] -translate-y-7'>
-        <input required className={`rounded-lg p-4 bg-zinc-800 max-w-[638px] w-full outline-none focus:ring focus:ring-blue-500 focus:outline focus:outline-2 caret-zinc-50`} type="text" placeholder='Adicione uma nova tarefa' onChange={handleNewTaskChange}/>
+        <input required className={`text-zinc-50 rounded-lg p-4 bg-zinc-800 max-w-[638px] w-full outline-none focus:ring focus:ring-blue-500 focus:outline focus:outline-2 caret-zinc-50`} type="text" placeholder='Adicione uma nova tarefa' onChange={handleNewTaskChange} value={newTask?.name || ''}/>
         <button className="rounded-lg bg-blue-500 p-4 text-zinc-50 font-bold text-sm flex gap-2 items-center" type='submit' onClick={handleNewTask}>
           Criar <span className='right-2 rounded-full border-2 border-zinc-50 text-center w-4 h-4 p-2 flex justify-center items-center'>+</span>
         </button>
